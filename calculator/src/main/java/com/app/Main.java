@@ -9,6 +9,8 @@ public class Main {
         int t=1;
         int x=2;
         System.out.println("BranchA");
+        System.out.println("-------------------");
+        System.out.println("------master-------");
     }
 
 }
