@@ -1,5 +1,6 @@
 package com.app;
 
+//class comment
 public class Main {
 
     //comment
