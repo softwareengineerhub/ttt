@@ -1,6 +1,7 @@
 package com.app;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.IntUnaryOperator;
 
 public class Service {
     private int connectionLimit=100;
@@ -16,6 +17,12 @@ public class Service {
     }
 
     public void handleUnSubscription(){
+        currentActiveConnectionsCount.getAndUpdate(new IntUnaryOperator() {
+            @Override
+            public int applyAsInt(int operand) {
+                return 0;
+            }
+        });
         if(currentActiveConnectionsCount.get()>0){
             currentActiveConnectionsCount.decrementAndGet();
         }
